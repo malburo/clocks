@@ -15,7 +15,7 @@ function NewClockForm(props) {
     timezone: null,
   };
   const validationSchema = Yup.object().shape({
-    clockName: Yup.string().required(),
+    clockName: Yup.string().required('This field is required.'),
     timezone: Yup.string().required('This field is required.').nullable(),
   });
   return (
