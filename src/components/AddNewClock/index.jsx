@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import React, { useState } from 'react';
+import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap';
 import NewClockForm from '../NewClockForm';
 import styles from './style.module.scss';
 AddNewClock.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
 function AddNewClock(props) {
-  const { buttonLabel, className, onSubmit } = props;
+  const { onSubmit } = props;
 
   const [modal, setModal] = useState(false);
 
@@ -24,8 +24,8 @@ function AddNewClock(props) {
           Thêm đồng hồ mới
         </Button>
       </div>
-      <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Add New Clock</ModalHeader>
+      <Modal isOpen={modal} toggle={toggle}>
+        <ModalHeader toggle={toggle}>Tạo đồng hồ mới</ModalHeader>
         <ModalBody>
           <NewClockForm toggle={toggle} onSubmit={handleSubmit} />
         </ModalBody>

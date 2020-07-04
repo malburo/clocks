@@ -2,21 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ClockCard from '../ClockCard';
 import styles from './style.module.scss';
-ClockList.propTypes = {};
+ClockList.propTypes = {
+  timezones: PropTypes.array.isRequired,
+  handleDeleteButton: PropTypes.func.isRequired,
+};
 
 function ClockList(props) {
-  const { timezones } = props;
+  const { timezones, handleDeleteButton } = props;
   const clockList = timezones.map(item => {
     return (
       <div className={styles.item}>
-        <ClockCard timezone={item.timezone} name={item.clockName} />
+        <ClockCard
+          timezone={item.timezone}
+          name={item.clockName}
+          handleDeleteButton={handleDeleteButton}
+          key={item.timezone}
+          item={item}
+        />
       </div>
     );
   });
   return (
     <div>
       <div className={styles.item}>
-        <ClockCard timezone="Asia/Ho_Chi_Minh" name="Việt Nam" />
+        <ClockCard
+          timezone="Asia/Ho_Chi_Minh"
+          name="Thời gian hiện tại"
+          currentTime={true}
+        />
       </div>
       {clockList}
     </div>

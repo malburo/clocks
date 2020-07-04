@@ -29,14 +29,14 @@ function NewClockForm(props) {
             type="text"
             name="clockName"
             component={InputField}
-            label="Clock's name"
-            placeholder="Eg: My clock ..."
+            label="Tên đồng hồ"
+            placeholder="Eg: Việt nam ..."
           />
           <FastField
             name="timezone"
             component={SelectField}
             label="Timezone"
-            placeholder="What's your photo category?"
+            placeholder="Timezone..."
             options={TIMEZONE_OPTIONS}
           />
           <div className={styles.button}>
@@ -44,7 +44,7 @@ function NewClockForm(props) {
               color="primary"
               type="submit"
               className={styles['submit-button']}>
-              Do Something
+              Save
             </Button>
             <Button
               color="secondary"
