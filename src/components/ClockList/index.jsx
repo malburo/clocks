@@ -25,11 +25,7 @@ function ClockList(props) {
   return (
     <div>
       <div className={styles.item}>
-        <ClockCard
-          timezone="Asia/Ho_Chi_Minh"
-          name="Thời gian hiện tại"
-          currentTime={true}
-        />
+        <ClockCard name="Thời gian hiện tại" currentTime={true} />
       </div>
       {clockList}
     </div>
