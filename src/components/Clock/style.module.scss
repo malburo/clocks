@@ -1,0 +1,13 @@
+.clock-card {
+  width: 700px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #212330;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 10px 20px;
+  border-radius: 4px;
+  &__name {
+  }
+}
