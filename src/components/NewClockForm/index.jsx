@@ -1,15 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './style.module.scss';
 import { FastField, Form, Formik } from 'formik';
-import * as Yup from 'yup';
-import InputField from '../../custom-field/InputField';
-import FormGroup from 'reactstrap/lib/FormGroup';
-import Label from 'reactstrap/lib/Label';
-import Input from 'reactstrap/lib/Input';
-import SelectField from '../../custom-field/SelectField';
-import { TIMEZONE_OPTIONS } from '../../constant/global';
+import React from 'react';
 import Button from 'reactstrap/lib/Button';
+import * as Yup from 'yup';
+import { TIMEZONE_OPTIONS } from '../../constant/global';
+import InputField from '../../custom-field/InputField';
+import SelectField from '../../custom-field/SelectField';
+import styles from './style.module.scss';
 NewClockForm.propTypes = {};
 
 function NewClockForm(props) {
@@ -20,7 +16,7 @@ function NewClockForm(props) {
   };
   const validationSchema = Yup.object().shape({
     clockName: Yup.string().required(),
-    timezone: Yup.number().required('This field is required.').nullable(),
+    timezone: Yup.string().required('This field is required.').nullable(),
   });
   return (
     <Formik
@@ -43,12 +39,20 @@ function NewClockForm(props) {
             placeholder="What's your photo category?"
             options={TIMEZONE_OPTIONS}
           />
-          <Button color="primary" type="submit">
-            Do Something
-          </Button>
-          <Button color="primary" onClick={toggle}>
-            Cancel
-          </Button>
+          <div className={styles.button}>
+            <Button
+              color="primary"
+              type="submit"
+              className={styles['submit-button']}>
+              Do Something
+            </Button>
+            <Button
+              color="secondary"
+              onClick={toggle}
+              className={styles['cancel-button']}>
+              Cancel
+            </Button>
+          </div>
         </Form>
       )}
     </Formik>
