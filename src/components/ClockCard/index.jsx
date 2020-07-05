@@ -4,7 +4,7 @@ import Clock from 'react-live-clock';
 import Delete from '../../assets/images/delete.png';
 import styles from './style.module.scss';
 ClockCard.propTypes = {
-  timezone: PropTypes.string.isRequired,
+  timezone: PropTypes.string,
   name: PropTypes.string.isRequired,
   onClick: PropTypes.func,
 };
@@ -15,6 +15,9 @@ function ClockCard(props) {
     <div className={styles['clock-card']}>
       <div className={styles['clock-card__name']}>
         <p>{name}</p>
+      </div>
+      <div className={styles['clock-card__timezone']}>
+        <p>{timezone}</p>
       </div>
       <div className={styles['clock-card__date']}>
         <Clock

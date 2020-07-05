@@ -11,12 +11,11 @@ function ClockList(props) {
   const { timezones, handleDeleteButton } = props;
   const clockList = timezones.map(item => {
     return (
-      <div className={styles.item}>
+      <div className={styles.item} key={item.timezone}>
         <ClockCard
           timezone={item.timezone}
           name={item.clockName}
           handleDeleteButton={handleDeleteButton}
-          key={item.timezone}
           item={item}
         />
       </div>
@@ -25,7 +24,7 @@ function ClockList(props) {
   return (
     <div>
       <div className={styles.item}>
-        <ClockCard name="Thời gian hiện tại" currentTime={true} />
+        <ClockCard name="The present time" currentTime={true} />
       </div>
       {clockList}
     </div>

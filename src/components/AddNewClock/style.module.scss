@@ -1,12 +1,48 @@
 .wrapper {
   width: 700px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 100px;
-  margin-bottom: 30px;
 
+  margin-top: 100px;
+  background-color: #353748;
+  padding: 20px;
+  margin-bottom: 20px;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .des {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #353748;
+    color: rgba(255, 255, 255, 0.9);
+    .clock-name {
+      flex: 2;
+    }
+    .time-zone {
+      flex: 2;
+    }
+    .dmy {
+      flex: 3;
+    }
+    .time {
+      padding-right: 50px;
+    }
+  }
   h1 {
     color: white;
   }
+  .button,
+  .button:hover,
+  .button:focus {
+    background-color: #282f64b3;
+    color: white;
+    border-color: none;
+    font-weight: 600;
+  }
+}
+
+.btn-primary {
+  border-color: none !important;
 }

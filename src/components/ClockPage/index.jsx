@@ -22,7 +22,6 @@ function ClockPage(props) {
     localStorage.timezones = JSON.stringify(data);
   };
   const handleDeleteButton = itemDelete => {
-    console.log(itemDelete);
     let data = [...timezones];
     const index = data.findIndex(item => item.timezone === itemDelete.timezone);
     data.splice(index, 1);
@@ -31,7 +30,7 @@ function ClockPage(props) {
   };
   return (
     <div className={styles['clock-page']}>
-      <AddNewClock onSubmit={handleSubmitNewClock}/>
+      <AddNewClock onSubmit={handleSubmitNewClock} />
       <ClockList
         timezones={timezones}
         handleDeleteButton={handleDeleteButton}

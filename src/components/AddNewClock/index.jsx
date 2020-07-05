@@ -19,10 +19,19 @@ function AddNewClock(props) {
   return (
     <div>
       <div className={styles.wrapper}>
-        <h1>World clocks</h1>
-        <Button color="primary" onClick={toggle} className={styles.button}>
-          Thêm đồng hồ mới
-        </Button>
+        <div className={styles.header}>
+          <h1>World clocks</h1>
+          <Button color="primary" onClick={toggle} className={styles.button}>
+            Add new Clock
+          </Button>
+        </div>
+
+        <div className={styles.des}>
+          <span className={styles['clock-name']}>Clock name</span>
+          <span className={styles['time-zone']}>Time zone</span>
+          <span className={styles['dmy']}>Day/Month/Year</span>
+          <span className={styles['time']}>Time</span>
+        </div>
       </div>
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Tạo đồng hồ mới</ModalHeader>
