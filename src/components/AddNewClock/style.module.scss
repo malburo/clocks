@@ -1,10 +1,9 @@
 .wrapper {
-  width: 700px;
+  width: 800px;
 
   margin-top: 100px;
   background-color: #353748;
   padding: 20px;
-  margin-bottom: 20px;
   .header {
     display: flex;
     align-items: center;
@@ -17,18 +16,6 @@
     justify-content: space-between;
     background-color: #353748;
     color: rgba(255, 255, 255, 0.9);
-    .clock-name {
-      flex: 2;
-    }
-    .time-zone {
-      flex: 2;
-    }
-    .dmy {
-      flex: 3;
-    }
-    .time {
-      padding-right: 50px;
-    }
   }
   h1 {
     color: white;
@@ -45,4 +32,17 @@
 
 .btn-primary {
   border-color: none !important;
+}
+
+.time {
+  width: 800px;
+
+  background-color: #212330;
+  padding: 20px;
+  display: flex;
+  color: rgba(255, 255, 255, 0.9);
+
+  p {
+    margin-right: 10px !important;
+  }
 }

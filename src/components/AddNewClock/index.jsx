@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import Clock from 'react-live-clock';
 import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap';
 import NewClockForm from '../NewClockForm';
 import styles from './style.module.scss';
@@ -25,13 +26,10 @@ function AddNewClock(props) {
             Add new Clock
           </Button>
         </div>
-
-        <div className={styles.des}>
-          <span className={styles['clock-name']}>Clock name</span>
-          <span className={styles['time-zone']}>Time zone</span>
-          <span className={styles['dmy']}>Day/Month/Year</span>
-          <span className={styles['time']}>Time</span>
-        </div>
+      </div>
+      <div className={styles.time}>
+        <p>The present time: </p>
+        <Clock format={'dddd, MMMM D, YYYY, h:mm:ss A'} ticking={true} />
       </div>
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Tạo đồng hồ mới</ModalHeader>

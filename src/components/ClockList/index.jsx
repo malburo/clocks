@@ -22,10 +22,17 @@ function ClockList(props) {
     );
   });
   return (
-    <div>
-      <div className={styles.item}>
-        <ClockCard name="The present time" currentTime={true} />
-      </div>
+    <div className={styles.wrapper}>
+      {clockList.length && (
+        <div className={styles.des}>
+          <span className={styles['clock-name']}>Clock name</span>
+          <span className={styles['time-zone']}>Time zone</span>
+          <span className={styles['dmy']}>Day/Month/Year</span>
+          <span className={styles['time']}>Time</span>
+          <span className={styles['action']}>Action</span>
+        </div>
+      )}
+
       {clockList}
     </div>
   );
