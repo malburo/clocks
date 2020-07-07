@@ -32,7 +32,7 @@ function AddNewClock(props) {
         <Clock format={'dddd, MMMM D, YYYY, h:mm:ss A'} ticking={true} />
       </div>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalHeader toggle={toggle}>Tạo đồng hồ mới</ModalHeader>
+        <ModalHeader toggle={toggle}>Add new clock</ModalHeader>
         <ModalBody>
           <NewClockForm toggle={toggle} onSubmit={handleSubmit} />
         </ModalBody>

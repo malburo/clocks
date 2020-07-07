@@ -2,10 +2,10 @@ import { FastField, Form, Formik } from 'formik';
 import React from 'react';
 import Button from 'reactstrap/lib/Button';
 import * as Yup from 'yup';
-import { TIMEZONE_OPTIONS } from '../../constant/global';
-import InputField from '../../custom-field/InputField';
-import SelectField from '../../custom-field/SelectField';
+import { TIMEZONE_OPTIONS } from '../../constants/global';
 import styles from './style.module.scss';
+import InputField from '../InputField';
+import SelectField from '../SelectField';
 NewClockForm.propTypes = {};
 
 function NewClockForm(props) {
@@ -29,8 +29,8 @@ function NewClockForm(props) {
             type="text"
             name="clockName"
             component={InputField}
-            label="Tên đồng hồ"
-            placeholder="Eg: Việt nam ..."
+            label="Clock's name"
+            placeholder="Eg: Vn..."
           />
           <FastField
             name="timezone"

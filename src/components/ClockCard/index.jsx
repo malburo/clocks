@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Clock from 'react-live-clock';
+import DeleteButton from '../DeleteButton';
 import styles from './style.module.scss';
-import Button from 'reactstrap/lib/Button';
 ClockCard.propTypes = {
   timezone: PropTypes.string,
   name: PropTypes.string.isRequired,
@@ -10,11 +10,11 @@ ClockCard.propTypes = {
 };
 
 function ClockCard(props) {
-  const { timezone, name, handleDeleteButton, item } = props;
+  const { timezone, clockName, handleDeleteButton, item } = props;
   return (
     <div className={styles['clock-card']}>
       <div className={styles['clock-card__name']}>
-        <p>{name}</p>
+        <p>{clockName}</p>
       </div>
       <div className={styles['clock-card__timezone']}>
         <p>{timezone}</p>
@@ -31,13 +31,12 @@ function ClockCard(props) {
       </div>
 
       <div className={`${styles.delete}`}>
-        <Button
-          color="danger"
-          onClick={() => handleDeleteButton(item)}
-          className={styles.button}
-          outline>
-          Delete
-        </Button>
+        <DeleteButton
+          buttonLabel="Delete"
+          handleDeleteButton={handleDeleteButton}
+          item={item}
+          clockName={clockName}
+        />
       </div>
     </div>
   );

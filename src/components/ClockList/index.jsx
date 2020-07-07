@@ -14,7 +14,7 @@ function ClockList(props) {
       <div className={styles.item} key={item.timezone}>
         <ClockCard
           timezone={item.timezone}
-          name={item.clockName}
+          clockName={item.clockName}
           handleDeleteButton={handleDeleteButton}
           item={item}
         />
