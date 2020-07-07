@@ -5,7 +5,7 @@ import DeleteButton from '../DeleteButton';
 import styles from './style.module.scss';
 ClockCard.propTypes = {
   timezone: PropTypes.string,
-  name: PropTypes.string.isRequired,
+  clockName: PropTypes.string.isRequired,
   onClick: PropTypes.func,
 };
 

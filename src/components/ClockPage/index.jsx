@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AddNewClock from '../AddNewClock';
 import ClockList from '../ClockList';
 import styles from './style.module.scss';
+import { TIMEZONE_OPTIONS } from '../../constants/global';
 ClockPage.propTypes = {};
 
 function ClockPage(props) {
@@ -15,8 +16,19 @@ function ClockPage(props) {
     }
     return timezones;
   });
-  const handleSubmitNewClock = values => {
+  const [timezonesOption, setTimezonesOption] = useState(() => {
+    return TIMEZONE_OPTIONS;
+  });
+  const handleAddNewClock = values => {
     let data = [...timezones];
+    let options = [...timezonesOption];
+    // Delete the selected option
+    const indexOption = options.findIndex(option => {
+      return option.value === values.timezone;
+    });
+    options.splice(indexOption, 1);
+    setTimezonesOption(options);
+    // Add new timezone to localStorage
     data.push(values);
     setTimezones(data);
     localStorage.timezones = JSON.stringify(data);
@@ -30,7 +42,10 @@ function ClockPage(props) {
   };
   return (
     <div className={styles['clock-page']}>
-      <AddNewClock onSubmit={handleSubmitNewClock} />
+      <AddNewClock
+        onSubmit={handleAddNewClock}
+        timezonesOption={timezonesOption}
+      />
       <ClockList
         timezones={timezones}
         handleDeleteButton={handleDeleteButton}

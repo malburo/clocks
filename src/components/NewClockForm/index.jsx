@@ -2,14 +2,17 @@ import { FastField, Form, Formik } from 'formik';
 import React from 'react';
 import Button from 'reactstrap/lib/Button';
 import * as Yup from 'yup';
-import { TIMEZONE_OPTIONS } from '../../constants/global';
 import styles from './style.module.scss';
 import InputField from '../InputField';
 import SelectField from '../SelectField';
-NewClockForm.propTypes = {};
+import PropTypes from 'prop-types';
+NewClockForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  timezonesOption: PropTypes.array.isRequired,
+};
 
 function NewClockForm(props) {
-  const { toggle, onSubmit } = props;
+  const { toggle, onSubmit, timezonesOption } = props;
   const initialValues = {
     clockName: '',
     timezone: null,
@@ -37,7 +40,7 @@ function NewClockForm(props) {
             component={SelectField}
             label="Timezone"
             placeholder="Timezone..."
-            options={TIMEZONE_OPTIONS}
+            options={timezonesOption}
           />
           <div className={styles.button}>
             <Button

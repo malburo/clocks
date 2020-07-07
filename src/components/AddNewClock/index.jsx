@@ -6,9 +6,10 @@ import NewClockForm from '../NewClockForm';
 import styles from './style.module.scss';
 AddNewClock.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  timezonesOption: PropTypes.array.isRequired,
 };
 function AddNewClock(props) {
-  const { onSubmit } = props;
+  const { onSubmit, timezonesOption } = props;
 
   const [modal, setModal] = useState(false);
 
@@ -34,7 +35,11 @@ function AddNewClock(props) {
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Add new clock</ModalHeader>
         <ModalBody>
-          <NewClockForm toggle={toggle} onSubmit={handleSubmit} />
+          <NewClockForm
+            toggle={toggle}
+            onSubmit={handleSubmit}
+            timezonesOption={timezonesOption}
+          />
         </ModalBody>
       </Modal>
     </div>
