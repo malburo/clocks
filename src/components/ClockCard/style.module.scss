@@ -1,24 +1,13 @@
 .clock-card {
-  width: 800px;
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  
   margin-top: 2px;
   background-color: #212330;
   color: rgba(255, 255, 255, 0.9);
   padding: 20px;
   border-radius: 4px;
-  &__name {
-    width: 200px;
-    word-break: break-all;
-  }
-  &__timezone {
-    width: 160px;
-  }
-  &__date {
-    width: 160px;
-  }
-  &__time {
-    width: 100px;
-  }
 }

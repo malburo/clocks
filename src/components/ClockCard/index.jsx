@@ -3,6 +3,7 @@ import React from 'react';
 import Clock from 'react-live-clock';
 import DeleteClock from '../DeleteClock';
 import styles from './style.module.scss';
+import Col from 'reactstrap/lib/Col';
 ClockCard.propTypes = {
   timezone: PropTypes.string,
   clockName: PropTypes.string.isRequired,
@@ -13,36 +14,35 @@ function ClockCard(props) {
   const { timezone, clockName, handleDeleteClock, item } = props;
   return (
     <div className={styles['clock-card']}>
-      <div className={styles['clock-card__name']}>
+      <Col xs="12" sm="5" lg="3">
         <p>{clockName}</p>
-      </div>
-      <div className={styles['clock-card__timezone']}>
+      </Col>
+      <Col xs="12" sm="7" lg="2">
         <p>{timezone}</p>
-      </div>
-      <div className={styles['clock-card__date']}>
+      </Col>
+      <Col xs="12" sm="5" lg="3">
         <Clock
           format={'dddd, MMMM D, YYYY'}
           ticking={true}
           timezone={timezone}
         />
-      </div>
-      <div className={`${styles['clock-card__time']}`}>
+      </Col>
+      <Col xs="8" sm="4" lg="2">
         <Clock
           format={'h:mm:ss A'}
           ticking={true}
-          interval={1000}
           timezone={timezone}
+          styles={{ width: '100%' }}
         />
-      </div>
-
-      <div className={`${styles.delete}`}>
+      </Col>
+      <Col xs="4" sm="3" lg="2">
         <DeleteClock
           buttonLabel="Delete"
           handleDeleteClock={handleDeleteClock}
           item={item}
           clockName={clockName}
         />
-      </div>
+      </Col>
     </div>
   );
 }

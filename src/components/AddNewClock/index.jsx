@@ -19,7 +19,7 @@ function AddNewClock(props) {
     setModal(!modal);
   };
   return (
-    <div>
+    <>
       <div className={styles.wrapper}>
         <div className={styles.header}>
           <h1>World clocks</h1>
@@ -42,7 +42,7 @@ function AddNewClock(props) {
           />
         </ModalBody>
       </Modal>
-    </div>
+    </>
   );
 }
 

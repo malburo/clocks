@@ -3,6 +3,8 @@ import AddNewClock from '../AddNewClock';
 import ClockList from '../ClockList';
 import styles from './style.module.scss';
 import { TIMEZONE_OPTIONS } from '../../constants/global';
+import Container from 'reactstrap/lib/Container';
+import Col from 'reactstrap/lib/Col';
 ClockPage.propTypes = {};
 
 function ClockPage(props) {
@@ -43,6 +45,7 @@ function ClockPage(props) {
   };
   const handleDeleteClock = itemDelete => {
     let data = [...timezones];
+    //add option when delete clock
     let options = JSON.parse(localStorage.timezonesOption);
     let addOption = { value: itemDelete.timezone, label: itemDelete.timezone };
     options.push(addOption);
@@ -57,19 +60,33 @@ function ClockPage(props) {
     });
     setTimezonesOption(options);
     localStorage.timezonesOption = JSON.stringify(options);
+    // delete clock
     const index = data.findIndex(item => item.timezone === itemDelete.timezone);
     data.splice(index, 1);
     setTimezones(data);
     localStorage.timezones = JSON.stringify(data);
   };
   return (
-    <div className={styles['clock-page']}>
-      <AddNewClock
-        onSubmit={handleAddNewClock}
-        timezonesOption={timezonesOption}
-      />
-      <ClockList timezones={timezones} handleDeleteClock={handleDeleteClock} />
-    </div>
+    <Container>
+      <div className={styles['clock-page']}>
+        <Col>
+          <div className="d-flex flex-column justify-content-center">
+            <AddNewClock
+              onSubmit={handleAddNewClock}
+              timezonesOption={timezonesOption}
+            />
+          </div>
+        </Col>
+        <Col>
+          <div className="d-flex flex-column justify-content-center">
+            <ClockList
+              timezones={timezones}
+              handleDeleteClock={handleDeleteClock}
+            />
+          </div>
+        </Col>
+      </div>
+    </Container>
   );
 }
 
