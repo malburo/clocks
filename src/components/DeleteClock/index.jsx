@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const DeleteButton = props => {
-  const { buttonLabel, className, handleDeleteButton, item, clockName } = props;
+  const { buttonLabel, className, handleDeleteClock, item, clockName } = props;
 
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
   const onDelete = () => {
     setModal(!modal);
-    handleDeleteButton(item);
+    handleDeleteClock(item);
   };
   return (
     <div>

@@ -17,7 +17,14 @@ function ClockPage(props) {
     return timezones;
   });
   const [timezonesOption, setTimezonesOption] = useState(() => {
-    return TIMEZONE_OPTIONS;
+    const dataString = localStorage.timezonesOption;
+    let options;
+    if (dataString) {
+      options = JSON.parse(localStorage.timezonesOption);
+    } else {
+      options = TIMEZONE_OPTIONS;
+    }
+    return options;
   });
   const handleAddNewClock = values => {
     let data = [...timezones];
@@ -28,13 +35,28 @@ function ClockPage(props) {
     });
     options.splice(indexOption, 1);
     setTimezonesOption(options);
+    localStorage.timezonesOption = JSON.stringify(options);
     // Add new timezone to localStorage
     data.push(values);
     setTimezones(data);
     localStorage.timezones = JSON.stringify(data);
   };
-  const handleDeleteButton = itemDelete => {
+  const handleDeleteClock = itemDelete => {
     let data = [...timezones];
+    let options = JSON.parse(localStorage.timezonesOption);
+    let addOption = { value: itemDelete.timezone, label: itemDelete.timezone };
+    options.push(addOption);
+    options.sort((a, b) => {
+      if (a.value < b.value) {
+        return -1;
+      }
+      if (a.value > b.value) {
+        return 1;
+      }
+      return 0;
+    });
+    setTimezonesOption(options);
+    localStorage.timezonesOption = JSON.stringify(options);
     const index = data.findIndex(item => item.timezone === itemDelete.timezone);
     data.splice(index, 1);
     setTimezones(data);
@@ -46,10 +68,7 @@ function ClockPage(props) {
         onSubmit={handleAddNewClock}
         timezonesOption={timezonesOption}
       />
-      <ClockList
-        timezones={timezones}
-        handleDeleteButton={handleDeleteButton}
-      />
+      <ClockList timezones={timezones} handleDeleteClock={handleDeleteClock} />
     </div>
   );
 }

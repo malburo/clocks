@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Clock from 'react-live-clock';
-import DeleteButton from '../DeleteButton';
+import DeleteClock from '../DeleteClock';
 import styles from './style.module.scss';
 ClockCard.propTypes = {
   timezone: PropTypes.string,
@@ -10,7 +10,7 @@ ClockCard.propTypes = {
 };
 
 function ClockCard(props) {
-  const { timezone, clockName, handleDeleteButton, item } = props;
+  const { timezone, clockName, handleDeleteClock, item } = props;
   return (
     <div className={styles['clock-card']}>
       <div className={styles['clock-card__name']}>
@@ -27,13 +27,18 @@ function ClockCard(props) {
         />
       </div>
       <div className={`${styles['clock-card__time']}`}>
-        <Clock format={'h:mm:ss A'} ticking={true} timezone={timezone} />
+        <Clock
+          format={'h:mm:ss A'}
+          ticking={true}
+          interval={1000}
+          timezone={timezone}
+        />
       </div>
 
       <div className={`${styles.delete}`}>
-        <DeleteButton
+        <DeleteClock
           buttonLabel="Delete"
-          handleDeleteButton={handleDeleteButton}
+          handleDeleteClock={handleDeleteClock}
           item={item}
           clockName={clockName}
         />

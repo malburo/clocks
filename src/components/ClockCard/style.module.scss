@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  margin-top: 2px;
   background-color: #212330;
   color: rgba(255, 255, 255, 0.9);
   padding: 20px;
@@ -21,8 +21,4 @@
   &__time {
     width: 100px;
   }
-}
-
-.none {
-  display: none;
 }
