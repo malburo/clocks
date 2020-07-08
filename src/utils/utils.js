@@ -1,4 +1,4 @@
-import { TIMEZONE_OPTIONS } from '../../constants/global';
+import { TIMEZONE_OPTIONS } from '../constants/global';
 
 export const initOptions = () => {
   const dataString = localStorage.timezonesOption;

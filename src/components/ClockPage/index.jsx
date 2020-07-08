@@ -4,7 +4,7 @@ import Container from 'reactstrap/lib/Container';
 import Row from 'reactstrap/lib/Row';
 import ClockList from '../ClockList';
 import Header from '../Header';
-import { initClocks, initOptions } from '../utils/utils';
+import { initClocks, initOptions } from '../../utils/utils';
 ClockPage.propTypes = {};
 
 function ClockPage(props) {
