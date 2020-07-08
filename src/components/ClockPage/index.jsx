@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Header from '../Header';
-import ClockList from '../ClockList';
-import styles from './style.module.scss';
-import Container from 'reactstrap/lib/Container';
+import React, { useEffect, useState } from 'react';
 import Col from 'reactstrap/lib/Col';
-import { initOptions, initClocks } from '../utils/utils';
+import Container from 'reactstrap/lib/Container';
+import Row from 'reactstrap/lib/Row';
+import ClockList from '../ClockList';
+import Header from '../Header';
+import { initClocks, initOptions } from '../utils/utils';
 ClockPage.propTypes = {};
 
 function ClockPage(props) {
@@ -60,21 +60,20 @@ function ClockPage(props) {
   };
   return (
     <Container>
-      <div className={styles['clock-page']}>
+      <Row className="justify-content-center">
         <Col>
-          <div className="d-flex flex-column justify-content-center">
-            <Header
-              onSubmit={handleAddNewClock}
-              timezonesOption={timezonesOption}
-            />
-          </div>
+          <Header
+            onSubmit={handleAddNewClock}
+            timezonesOption={timezonesOption}
+          />
         </Col>
+      </Row>
+
+      <Row className="justify-content-center">
         <Col>
-          <div className="d-flex flex-column justify-content-center">
-            <ClockList clocks={clocks} handleDeleteClock={handleDeleteClock} />
-          </div>
+          <ClockList clocks={clocks} handleDeleteClock={handleDeleteClock} />
         </Col>
-      </div>
+      </Row>
     </Container>
   );
 }

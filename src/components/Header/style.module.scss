@@ -1,21 +1,11 @@
-.wrapper {
-  width: 100%;
+.header {
   margin-top: 100px;
   background-color: #353748;
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
   padding: 20px;
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .des {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #353748;
-    color: rgba(255, 255, 255, 0.9);
-  }
   h1 {
     color: white;
   }
@@ -29,12 +19,9 @@
   }
 }
 
-.btn-primary {
-  border-color: none !important;
-}
-
 .time {
   width: 100%;
+
   background-color: #212330;
   padding: 20px;
   display: flex;
@@ -42,5 +29,6 @@
 
   p {
     margin-right: 10px !important;
+    margin-left: 10px !important;
   }
 }

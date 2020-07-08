@@ -4,10 +4,13 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  
+
   margin-top: 2px;
   background-color: #212330;
   color: rgba(255, 255, 255, 0.9);
-  padding: 20px;
+  padding: 10px;
   border-radius: 4px;
+  .clockName {
+    word-break: break-all;
+  }
 }

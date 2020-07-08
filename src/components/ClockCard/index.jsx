@@ -15,7 +15,7 @@ function ClockCard(props) {
   const { timezone, clockName, handleDeleteClock, item } = props;
   return (
     <div className={styles['clock-card']}>
-      <Col xs="12" sm="5" lg="3">
+      <Col xs="12" sm="5" lg="3" className={styles.clockName}>
         <p>{clockName}</p>
       </Col>
       <Col xs="12" sm="7" lg="2">
