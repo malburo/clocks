@@ -1,13 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Clock from 'react-live-clock';
-import DeleteClock from '../DeleteClock';
+import DeleteClock from '../DeleteButton';
 import styles from './style.module.scss';
 import Col from 'reactstrap/lib/Col';
 ClockCard.propTypes = {
   timezone: PropTypes.string,
-  clockName: PropTypes.string.isRequired,
+  clockName: PropTypes.string,
   onClick: PropTypes.func,
+  item: PropTypes.object,
 };
 
 function ClockCard(props) {
@@ -28,12 +29,7 @@ function ClockCard(props) {
         />
       </Col>
       <Col xs="8" sm="4" lg="2">
-        <Clock
-          format={'h:mm:ss A'}
-          ticking={true}
-          timezone={timezone}
-          styles={{ width: '100%' }}
-        />
+        <Clock format={'h:mm:ss A '} interval={1} />
       </Col>
       <Col xs="4" sm="3" lg="2">
         <DeleteClock

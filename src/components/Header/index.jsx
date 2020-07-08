@@ -4,18 +4,18 @@ import Clock from 'react-live-clock';
 import { Button, Modal, ModalBody, ModalHeader } from 'reactstrap';
 import NewClockForm from '../NewClockForm';
 import styles from './style.module.scss';
-AddNewClock.propTypes = {
+Header.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   timezonesOption: PropTypes.array.isRequired,
 };
-function AddNewClock(props) {
+function Header(props) {
   const { onSubmit, timezonesOption } = props;
 
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
   const handleSubmit = (values, actions) => {
-    onSubmit(values);
+    onSubmit(values, actions);
     setModal(!modal);
   };
   return (
@@ -30,7 +30,11 @@ function AddNewClock(props) {
       </div>
       <div className={styles.time}>
         <p>The present time: </p>
-        <Clock format={'dddd, MMMM D, YYYY, h:mm:ss A'} ticking={true} />
+        <Clock
+          format={'dddd, MMMM D, YYYY, h:mm:ss A'}
+          ticking={true}
+          interval={1}
+        />
       </div>
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Add new clock</ModalHeader>
@@ -46,4 +50,4 @@ function AddNewClock(props) {
   );
 }
 
-export default AddNewClock;
+export default Header;

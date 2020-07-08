@@ -6,24 +6,24 @@ import ClockCard from '../ClockCard';
 import TitleBar from '../TitleBar';
 import styles from './style.module.scss';
 ClockList.propTypes = {
-  timezones: PropTypes.array.isRequired,
+  clocks: PropTypes.array.isRequired,
   handleDeleteClock: PropTypes.func.isRequired,
 };
 
 function ClockList(props) {
-  const { timezones, handleDeleteClock } = props;
+  const { clocks, handleDeleteClock } = props;
   return (
     <Container>
       <div className={styles.wrapper}>
-        {timezones.length && (
+        {clocks.length && (
           <Row>
             <TitleBar />
           </Row>
         )}
-        {timezones.map(item => {
+        {clocks.map(item => {
           const { timezone, clockName } = item;
           return (
-            <Row>
+            <Row key={timezone}>
               <ClockCard
                 timezone={timezone}
                 clockName={clockName}
